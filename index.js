@@ -1,13 +1,12 @@
+import Books from './modules/booklist.js';
+import DateData from './modules/dateTime.js';
+
 "use strict";
 
-import DateTime from './modules/dateTime';
-import Books from './modules/booklist';
-
-
-const bookListElement = document.getElementById('book-list');
 const addButtonElement = document.getElementById('add-btn');
 const titleInputElement = document.getElementById('title-input');
 const authorInputElement = document.getElementById('author-input');
+const bookListElement = document.getElementById('book-list');
 const listLink = document.querySelector('.list-link');
 const addLink = document.querySelector('.add-link');
 const contactLink = document.querySelector('.contact-link');
@@ -15,8 +14,8 @@ const formElement = document.getElementById('form');
 const contactElement = document.getElementById('contact');
 
 // render dateTime information into the date-time element
-const dateTime = new DateTime('.date-time');
-dateTime.render();
+const date = new DateData('.date-time');
+date.render();
 
 const booksObj = new Books();
 booksObj.displayBookList();
