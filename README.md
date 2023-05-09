@@ -1,11 +1,11 @@
-# Awesome-books
+# Awesome-books-with-ES6
 <a name="readme-top"></a>
 
 <div align="center">
   <img src="http://img.scoop.it/cKEZkd1vEUhIUuoyVpYuQjl72eJkfbmt4t8yenImKBXEejxNn4ZJNZ2ss5Ku7Cxt" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Awesome Books</b></h3>
+  <h3><b>Awesome Books with ES6</b></h3>
 
 </div>
 
