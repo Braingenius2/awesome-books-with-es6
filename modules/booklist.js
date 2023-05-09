@@ -1,4 +1,6 @@
-class BookList {
+import Book from './book.js';
+
+export default class Books {
   constructor() {
     this.books = [];
     this.bookListElement = document.getElementById('book-list');
