@@ -2,24 +2,20 @@ import Book from './book.js';
 
 const bookListElement = document.getElementById('book-list');
 
-
 export default class Books {
   constructor() {
     this.books = JSON.parse(localStorage.getItem('books') || '[]');
   }
 
   addBook(title, author) {
-    const book = {
-      id: this.books.length + 1,
-      title,
-      author,
-    };
+    const uniqueNumber = Math.floor(Math.random() * 1000000);
+    const book = new Book(uniqueNumber, title, author);
     this.books.push(book);
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   removeBook(id) {
-    this.books = this.books.filter((book) => book.id !== id);
+    this.books = this.books.filter((book) => book.id !== parseInt(id, 10));
     let localStorageBooks = JSON.parse(localStorage.getItem('books'));
     localStorageBooks = localStorageBooks.filter((obj) => obj.id !== parseInt(id, 10));
     localStorage.setItem('books', JSON.stringify(localStorageBooks));
@@ -30,6 +26,10 @@ export default class Books {
     bookListElement.innerHTML = '<h2>All Awesome books</h2>';
     const booksContainer = document.createElement('div');
     booksContainer.id = 'booksContainer';
+
+    // Update the local books array from the local storage
+    this.books = JSON.parse(localStorage.getItem('books') || '[]');
+
     // Loop through the book collection and create a new element for each book
     this.books.forEach((book) => {
       const bookElement = document.createElement('div');
@@ -49,80 +49,4 @@ export default class Books {
       bookListElement.appendChild(booksContainer);
     });
   }
-  // constructor() {
-  //   this.books = [];
-  //   this.bookListElement = document.getElementById('book-list');
-  //   this.addButtonElement = document.getElementById('add-btn');
-  //   this.titleInputElement = document.getElementById('title-input');
-  //   this.authorInputElement = document.getElementById('author-input');
-
-  //   // Check if there is any data in localStorage and load it
-  //   if (localStorage.getItem('books')) {
-  //     this.books = JSON.parse(localStorage.getItem('books'));
-  //   }
-
-  //   // Event listener for the add book button
-  //   this.addButtonElement.addEventListener('click', (event) => {
-  //     event.preventDefault();
-
-  //     // Get the values from the input fields
-  //     const title = this.titleInputElement.value;
-  //     const author = this.authorInputElement.value;
-
-  //     // Add the book to the collection
-  //     const book = new Book(this.books.length + 1, title, author);
-  //     this.books.push(book);
-  //     localStorage.setItem('books', JSON.stringify(this.books));
-
-  //     // Clear the input fields
-  //     this.titleInputElement.value = '';
-  //     this.authorInputElement.value = '';
-
-  //     // Display the updated book list
-  //     this.displayBookList();
-  //   });
-
-  //   this.displayBookList();
-  // }
-
-  // addBook(title, author) {
-  //   const book = {
-  //     id: this.books.length + 1,
-  //     title,
-  //     author,
-  //   };
-  //   this.books.push(book);
-  //   localStorage.setItem('books', JSON.stringify(this.books));
-  // }
-
-  // removeBook(id) {
-  //  book.removeBook(id, this.books);
-  //  localStorage.setItem('books', JSON.stringify(this.books));
-
-  // }
-
-  // displayBookList() {
-  //   // Clear the book list element
-  //   this.bookListElement.innerHTML = '';
-
-  //   // Loop through the book collection and create a new element for each book
-  //   this.books.forEach((book) => {
-  //     const bookElement = document.createElement('div');
-  //     bookElement.innerHTML = `<p><span class="title">"${book.title}" by </span>
-  //     <span class="author">${book.author}</span></p>`;
-  //     bookElement.id = `book-${book.id}`;
-  //     const removeButton = document.createElement('button');
-  //     removeButton.textContent = 'Remove';
-  //     removeButton.dataset.id = book.id;
-  //     removeButton.addEventListener('click', (event) => {
-  //       // const { id } = event.target.dataset;
-  //       Book.removeBook(book.id, this.books);
-  //       this.displayBookList();
-  //       // const bookElement = document.getElementById(`book-${id}`);
-  //       // this.bookListElement.removeChild(bookElement);
-  //     });
-  //     bookElement.appendChild(removeButton);
-  //     this.bookListElement.appendChild(bookElement);
-  //   });
-  // }
 }

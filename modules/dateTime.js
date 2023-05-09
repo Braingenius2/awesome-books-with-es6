@@ -6,10 +6,8 @@ export default class DateData {
   }
 
   render() {
-    let now = DateTime.now();
-    let dateTimeContent = now.toLocaleString(DateTime.DATETIME_FULL);
+    const now = DateTime.now();
+    const dateTimeContent = now.toLocaleString(DateTime.DATETIME_FULL);
     this.element.innerHTML = `${dateTimeContent}`;
   }
 }
-
-

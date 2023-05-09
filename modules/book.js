@@ -4,12 +4,4 @@ export default class Book {
     this.title = title;
     this.author = author;
   }
-
-  // method to remove a book from a given booklist
-  static removeBook(id, books) {
-    books = books.filter((book) => book.id !== id);
-    // let localStorageBooks = JSON.parse(localStorage.getItem('books'));
-    // localStorageBooks = localStorageBooks.filter((obj) => obj.id !== parseInt(id, 10));
-    localStorage.setItem('books', JSON.stringify(localStorageBooks));
-  }
 }

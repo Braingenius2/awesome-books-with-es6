@@ -1,8 +1,6 @@
 import Books from './modules/booklist.js';
 import DateData from './modules/dateTime.js';
 
-"use strict";
-
 const addButtonElement = document.getElementById('add-btn');
 const titleInputElement = document.getElementById('title-input');
 const authorInputElement = document.getElementById('author-input');
