@@ -5,9 +5,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css">
-  <title>Document</title>
+  <title>Awesome books</title>
 </head>
 <body>
-  <script src="index.js"></script>
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <h2>Awesome Books</h2>
+      </div>
+      <ul id="nav-menu">
+        <li class="menu-item list-link">List</li>
+        <li class="menu-item add-link">Add new</li>
+        <li class="menu-item contact-link">Contact</li>
+      </ul>
+    </nav>
+    <div class="date-time">
+      
+    </div>
+  </header>
+  <main>
+    <section id="book-list">
+    </section>
+    <br>
+    <section id="form">
+      <h2>Add a new book</h2>
+      <form action="" method="post" id="add-book">
+        
+            <label for="title-input"></label>
+            <input type="text" id="title-input" placeholder="Title" required>
+            <label for="author-input"></label>
+            <input type="text" id="author-input" placeholder="Author" required>
+            <input type="button" value="Add" class="add" id="add-btn">
+      </form>
+    </section>
+    <section id="contact">
+      <h2>Contact information</h2>
+      <p>Do you have any questins or just want to say "Hello"?<br>You can reach out to us!</p>
+      <ul>
+        <li>our e-mail: mail@mail.com</li>
+        <li>our phone number: 0043586534422</li>
+        <li>Our address: Streetname 22, 84503 City, Country</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <section id="copyright">
+      <h2>Copyright</h2>
+    </section>
+  </footer>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
